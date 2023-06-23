@@ -24,6 +24,19 @@ function updateTime() {
       "h:mm:ss [<small>]A[</small>]"
     );
   }
+
+  // Tokyo
+  let tokyoElement = document.querySelector("#tokyo");
+  if (tokyoElement) {
+    let tokyoDateElement = tokyoElement.querySelector(".date");
+    let tokyoTimeElement = tokyoElement.querySelector(".time");
+    tokyoTime = moment().tz("Asia/Tokyo");
+
+    tokyoDateElement.innerHTML = tokyoTime.format("MMMM Do YYYY");
+    tokyoTimeElement.innerHTML = tokyoTime.format(
+      "h:mm:ss [<small>]A[</small>]"
+    );
+  }
 }
 updateTime();
 setInterval(updateTime, 1000);
@@ -46,7 +59,7 @@ function updateCity(event) {
           "h:mm:ss"
         )} <small>${cityTime.format("A")}</small></div>
       </div>
-      <a href="/">Back to homepage</a>`;
+      <strong><a href="/">Back to homepage</a></strong>`;
 }
 
 let citiesSelectElement = document.querySelector("#city");
